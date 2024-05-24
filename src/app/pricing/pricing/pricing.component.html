@@ -1,0 +1,22 @@
+<div *ngFor="let i of ListQuiz; let index = index" class="quiz-container" >
+   <h1 class="quiz-question" style="text-align: center;margin-bottom: 30px;">Question: {{i.question}}</h1>
+   <div *ngIf="i.photo"><img [src]="authservice.PhotoUrl + i.photo" style="width: 150px;transform: translate(200%);margin-bottom: 30px;"></div>
+   <div *ngIf="i.photo==null">No photo</div>
+   <div class="quiz-options">
+     <label>
+       <input type="radio" style="margin-right:10px;" [(ngModel)]="i.selectedChoice" [value]="i.choix1" name="choice{{index}}"> {{i.choix1}}
+     </label>
+     <label>
+       <input type="radio" style="margin-right:10px;" [(ngModel)]="i.selectedChoice" [value]="i.choix2" name="choice{{index}}"> {{i.choix2}}
+     </label>
+     <label>
+       <input type="radio" style="margin-right:10px;" [(ngModel)]="i.selectedChoice" [value]="i.choix3" name="choice{{index}}"> {{i.choix3}}
+     </label>
+  
+     <mat-form-field class="w-100" appearance="outline">
+       <mat-label>Another response</mat-label>
+       <input   #answerInput matInput >
+     </mat-form-field>
+   </div>
+   <button sty (click)="QuizResponse(i.question, i.emailUserRequest, answerInput.value, i.selectedChoice)" class="quiz-button">Submit</button>
+ </div>

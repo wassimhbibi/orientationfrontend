@@ -1,0 +1,325 @@
+<div class="">
+    <div class="">
+        <div class="row g-0" >
+            <div  class="col-6 col-xl-6 col-xxl-6 auth-cover-left align-items-center justify-content-center d-none d-xl-flex z-1 position-relative">
+                <div  class="login-bg position-fixed top-0 start-0 end-0 bottom-0"
+                 style="background-image: url(/assets/images/univ.jpg);"></div>
+                 <div class="black-overlay"></div>
+                <div class="cover-content position-absolute text-center top-50 start-50 translate-middle">
+                 
+                   <h1 class="text-white mb-3" style="font-size: 60px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Welcome Back</h1>
+                 
+                    
+                </div>
+            </div>
+            <div  class="col-12 col-xl-6 col-xxl-4 auth-cover-right align-items-center justify-content-center z-1">
+                <mat-card  class="shadow-none mb-0 rounded-0">
+                    <mat-card-content  class="p-5">
+                      <div class="text-center">
+                        <img src="assets/images/app/logo-icon-2.png" width="30">
+                          <h4 class="mb-2">User Sign Up</h4>
+                          <p class="mb-4">Please fill the below details to create your account</p>
+                       </div>
+                       <form [formGroup]="signupForm">
+                       
+                       
+                       
+                            <div class="row g-3">
+                      
+                              <!-- Step 1: Basic Information -->
+                              <div *ngIf="currentStep === 1">
+                                <div class="col-12 col-md-12">
+                                  <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput formControlName="name">
+                                    <mat-error *ngIf="signupForm.get('name').hasError('required')">
+                                        name is required
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.get('name').hasError('pattern')">
+                                        Enter only caracters
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                  <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>LastName</mat-label>
+                                    <input matInput formControlName="lastname">
+                                    <mat-error *ngIf="signupForm.get('lastname').hasError('required')">
+                                        lastname is required
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.get('lastname').hasError('pattern')">
+                                        Enter only caracters
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+
+                            
+                                <div class="col-12 col-md-12">
+                                  <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Date of Birth</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="datebirth">
+                                    <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                </div>
+
+                                <div class="col-12 col-md-12">
+                                    <mat-form-field class="w-100" appearance="outline">
+                                      <mat-label>Address</mat-label>
+                                      <input matInput formControlName="adress" placeholder="Ex. 123 Main St">
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-12 col-md-12">
+                                    <mat-form-field class="w-100" appearance="outline">
+                                      <mat-label>Password</mat-label>
+                                      <input type="password" matInput formControlName="password" placeholder="Ex. @#45ghAo">
+                                      <mat-error *ngIf="signupForm.get('password').hasError('required')">
+                                        Password is required
+                                      </mat-error>
+                                      <mat-error *ngIf="signupForm.get('password').hasError('pattern')">
+                                          Password contain 8 caracters/number/letters/special!
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-12 col-md-12">
+                                    <mat-form-field class="w-100" appearance="outline">
+                                      <mat-label>Confirm Password</mat-label>
+                                      <input type="password" matInput formControlName="confirmPassword" placeholder="Ex. @#45gh">
+                                      <mat-error  *ngIf="confirm_password()">
+                                        Password is not confirm
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.get('confirmPassword').hasError('required')">
+                                            Confirme Password is required
+                                        </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-12 col-md-12">
+                                      <mat-form-field class="w-100" appearance="outline">
+                                        <mat-label>Phone</mat-label>
+                                        <input type="tel" matInput formControlName="phone" placeholder="Ex. 1234567890">
+                                      </mat-form-field>
+                                    </div>
+                                    <div class="col-12 col-md-12">
+                                      <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Gender</mat-label>
+                                        <mat-select formControlName="gender">
+                                          <mat-option value="Male">Male</mat-option>
+                                          <mat-option value="Female">Female</mat-option>
+                                        </mat-select>
+                                      </mat-form-field>
+                                    </div>
+                                <div class="col-12 col-md-12">
+                                  <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput formControlName="email" placeholder="Ex. xyz@example.com">
+                                    <mat-error *ngIf="signupForm.get('email').hasError('required')">
+                                        Email address is required
+                                    </mat-error>
+                                    <mat-error *ngIf="signupForm.get('email').hasError('email')">
+                                        Please enter a valid email address
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+                           
+  
+                                
+  
+                        
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                      <div class="card">
+                                        <div class="header">
+                                          <h5 >Choose photo</h5>
+                                        </div>
+                                        <div class="body">
+                                          <div class="example-container">
+                                            
+                                              <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+                                               
+                                                  <input  style="padding: 12px !important;" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" (change)="uploadPhoto($event)" type="file">
+                                                
+                                                
+                                                  <img [src]="PhotoFilePath" style="width: 250px; transform: translateX(22%);" >
+                                                </div>
+                                              </div>
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                           </div>
+                                  
+                                <div class="col-12 col-md-12">
+                                  <div class="d-grid">
+                                    <button mat-flat-button color="primary" (click)="nextStep()">Next</button>
+                                  </div>
+                                </div>
+                              </div>
+                      
+                              <!-- Step 2: Contact Information -->
+                           
+                           
+                      
+                              <!-- Step 4: Additional Information -->
+                              <div *ngIf="currentStep === 2" >
+                               
+                                <table class="mat-elevation-z8 modern-table">
+                                    <tr>
+                                      <td> <mat-label>Year</mat-label></td>
+                                      <td> <mat-label>Establishment</mat-label></td>
+                                      <td> <mat-label>Career path</mat-label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <mat-form-field appearance="outline" class="w-100">
+                                              <mat-label>Year</mat-label>
+                                              <mat-select formControlName="year1">
+                                                <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                                              </mat-select>
+                                            </mat-form-field>
+                                          </td>
+                                      <td><mat-form-field><input formControlName="etablisment1" matInput placeholder="Establishment 1"></mat-form-field></td>
+                                      <td><mat-form-field><input formControlName="parcour1" matInput placeholder="Career path 1"></mat-form-field></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <mat-form-field appearance="outline" class="w-100">
+                                              <mat-label>Year 2</mat-label>
+                                              <mat-select formControlName="year2" >
+                                                <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                                              </mat-select>
+                                            </mat-form-field>
+                                          </td>
+                                      <td><mat-form-field><input  formControlName="etablisment2" matInput placeholder="Establishment 2"></mat-form-field></td>
+                                      <td><mat-form-field><input formControlName="parcour2" matInput placeholder="Career path 2"></mat-form-field></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <mat-form-field appearance="outline" class="w-100">
+                                              <mat-label>Year 3</mat-label>
+                                              <mat-select formControlName="year3">
+                                                <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                                              </mat-select>
+                                            </mat-form-field>
+                                          </td>
+                                      <td><mat-form-field><input formControlName="etablisment3" matInput placeholder="Establishment 3"></mat-form-field></td>
+                                      <td><mat-form-field><input formControlName="parcour3" matInput placeholder="Career path 3"></mat-form-field></td>
+                                    </tr>
+                                  </table>
+                                  <mat-checkbox formControlName="encours"  class="example-margin">In progress</mat-checkbox>
+                                  <div class="col-12 col-md-12" style="margin-top: 10px;">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Speciality</mat-label>
+                                        <mat-select formControlName="speciality" >
+                                            <mat-option value=""></mat-option>
+                                            <mat-option value="informatics">Informatics</mat-option>
+                                            <mat-option value="management">Management</mat-option>
+                                            <mat-option value="engineering">Engineering</mat-option>
+                                            <mat-option value="medicine">Medicine</mat-option>
+                                            <mat-option value="law">Law</mat-option>
+                                            <mat-option value="literature">Literature</mat-option>
+                                            <mat-option value="finance">Finance</mat-option>
+                                            <mat-option value="marketing">Marketing</mat-option>
+                                            <mat-option value="human_resources">Human Resources</mat-option>
+                                            <mat-option value="education">Education</mat-option>
+                                            <mat-option value="psychology">Psychology</mat-option>
+                                            <mat-option value="environmental_science">Environmental Science</mat-option>
+                                            <mat-option value="architecture">Architecture</mat-option>
+                                            <mat-option value="art">Art</mat-option>
+                                            <mat-option value="biology">Biology</mat-option>
+                                            <mat-option value="chemistry">Chemistry</mat-option>
+                                            <mat-option value="physics">Physics</mat-option>
+                                            <mat-option value="sociology">Sociology</mat-option>
+                                            <mat-option value="political_science">Political Science</mat-option>
+                                            <mat-option value="economics">Economics</mat-option>
+                                            <mat-option value="history">History</mat-option>
+                                            <mat-option value="philosophy">Philosophy</mat-option>
+                                            <mat-option value="communications">Communications</mat-option>
+                                            <mat-option value="nursing">Nursing</mat-option>
+                                            <mat-option value="pharmacy">Pharmacy</mat-option>
+                                            <mat-option value="dentistry">Dentistry</mat-option>
+                                            <mat-option value="veterinary_medicine">Veterinary Medicine</mat-option>
+                                            <mat-option value="computer_science">Computer Science</mat-option>
+                                            <mat-option value="information_technology">Information Technology</mat-option>
+                                            <mat-option value="cyber_security">Cyber Security</mat-option>
+                                            <mat-option value="data_science">Data Science</mat-option>
+                                            <mat-option value="machine_learning">Machine Learning</mat-option>
+                                            <mat-option value="artificial_intelligence">Artificial Intelligence</mat-option>
+                                            <mat-option value="robotics">Robotics</mat-option>
+                                            <mat-option value="mechanical_engineering">Mechanical Engineering</mat-option>
+                                            <mat-option value="electrical_engineering">Electrical Engineering</mat-option>
+                                            <mat-option value="civil_engineering">Civil Engineering</mat-option>
+                                            <mat-option value="chemical_engineering">Chemical Engineering</mat-option>
+                                            <mat-option value="biomedical_engineering">Biomedical Engineering</mat-option>
+                                            <mat-option value="aerospace_engineering">Aerospace Engineering</mat-option>
+                                            <mat-option value="marine_biology">Marine Biology</mat-option>
+                                            <mat-option value="genetics">Genetics</mat-option>
+                                            <mat-option value="neuroscience">Neuroscience</mat-option>
+                                            <mat-option value="astronomy">Astronomy</mat-option>
+                                            <mat-option value="geology">Geology</mat-option>
+                                            <mat-option value="meteorology">Meteorology</mat-option>
+                                            <mat-option value="oceanography">Oceanography</mat-option>
+                                            <mat-option value="anthropology">Anthropology</mat-option>
+                                            <mat-option value="archaeology">Archaeology</mat-option>
+                                            <mat-option value="linguistics">Linguistics</mat-option>
+                                            <mat-option value="theology">Theology</mat-option>
+                                            <mat-option value="music">Music</mat-option>
+                                            <mat-option value="performing_arts">Performing Arts</mat-option>
+                                            <mat-option value="film_studies">Film Studies</mat-option>
+                                            <mat-option value="creative_writing">Creative Writing</mat-option>
+                                            <mat-option value="journalism">Journalism</mat-option>
+                                            <mat-option value="public_relations">Public Relations</mat-option>
+                                            <mat-option value="advertising">Advertising</mat-option>
+                                            <mat-option value="graphic_design">Graphic Design</mat-option>
+                                            <mat-option value="industrial_design">Industrial Design</mat-option>
+                                            <mat-option value="fashion_design">Fashion Design</mat-option>
+                                            <mat-option value="urban_planning">Urban Planning</mat-option>
+                                            <mat-option value="hospitality_management">Hospitality Management</mat-option>
+                                            <mat-option value="tourism">Tourism</mat-option>
+                                            <mat-option value="sports_management">Sports Management</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                
+                                  <div class="col-12 col-md-12" style="margin-top: 10px;">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                      <mat-label>Status actuel</mat-label>
+                                      <mat-select formControlName="status">
+                                        <mat-option value="Etudiant">Etudiant</mat-option>
+                                        <mat-option value="Emploiee">Emploiee</mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                    </div>
+                                
+
+
+                                <div class="col-12 col-md-12">
+                                  <mat-checkbox formControlName="terms">I read and agree to Terms & Conditions</mat-checkbox>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                  <div class="d-grid">
+                                    <button mat-flat-button color="primary" type="submit" class="px-4"  [disabled]="signupForm.invalid || confirm_password() " (click)="signUp()">Sign Up</button>
+                                    <button mat-flat-button color="warn" (click)="previousStep()">Previous</button>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-12" style="margin-top: 20px;">
+                                    <div class="text-center">
+                               
+                                        <p> Already have an account? <a routerLink="../cover-signin"
+                                                style="cursor: pointer; color: #1414f8;">Sign in here</a></p>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                         
+                       
+                      </form>
+                      
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+        </div>
+        <!--end row-->
+    </div>
+</div>

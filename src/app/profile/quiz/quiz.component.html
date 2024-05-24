@@ -1,0 +1,148 @@
+
+
+
+
+ 
+        <mat-card class="rounded-4">
+            <mat-card-content class="p-4">
+           <h1 style="align-items: center;display: flex;justify-content: center;"> Add Quiz</h1>
+                  <form class="m-4" [formGroup]="quizForm">
+                  <div class="row g-3">
+                    <div class="col-12 col-md-12" style="margin-top: 10px;">
+                      <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Speciality</mat-label>
+                          <mat-select formControlName="speciality" >
+                              <mat-option value=""></mat-option>
+                              <mat-option value="informatics">Informatics</mat-option>
+                              <mat-option value="management">Management</mat-option>
+                              <mat-option value="engineering">Engineering</mat-option>
+                              <mat-option value="medicine">Medicine</mat-option>
+                              <mat-option value="law">Law</mat-option>
+                              <mat-option value="literature">Literature</mat-option>
+                              <mat-option value="finance">Finance</mat-option>
+                              <mat-option value="marketing">Marketing</mat-option>
+                              <mat-option value="human_resources">Human Resources</mat-option>
+                              <mat-option value="education">Education</mat-option>
+                              <mat-option value="psychology">Psychology</mat-option>
+                              <mat-option value="environmental_science">Environmental Science</mat-option>
+                              <mat-option value="architecture">Architecture</mat-option>
+                              <mat-option value="art">Art</mat-option>
+                              <mat-option value="biology">Biology</mat-option>
+                              <mat-option value="chemistry">Chemistry</mat-option>
+                              <mat-option value="physics">Physics</mat-option>
+                              <mat-option value="sociology">Sociology</mat-option>
+                              <mat-option value="political_science">Political Science</mat-option>
+                              <mat-option value="economics">Economics</mat-option>
+                              <mat-option value="history">History</mat-option>
+                              <mat-option value="philosophy">Philosophy</mat-option>
+                              <mat-option value="communications">Communications</mat-option>
+                              <mat-option value="nursing">Nursing</mat-option>
+                              <mat-option value="pharmacy">Pharmacy</mat-option>
+                              <mat-option value="dentistry">Dentistry</mat-option>
+                              <mat-option value="veterinary_medicine">Veterinary Medicine</mat-option>
+                              <mat-option value="computer_science">Computer Science</mat-option>
+                              <mat-option value="information_technology">Information Technology</mat-option>
+                              <mat-option value="cyber_security">Cyber Security</mat-option>
+                              <mat-option value="data_science">Data Science</mat-option>
+                              <mat-option value="machine_learning">Machine Learning</mat-option>
+                              <mat-option value="artificial_intelligence">Artificial Intelligence</mat-option>
+                              <mat-option value="robotics">Robotics</mat-option>
+                              <mat-option value="mechanical_engineering">Mechanical Engineering</mat-option>
+                              <mat-option value="electrical_engineering">Electrical Engineering</mat-option>
+                              <mat-option value="civil_engineering">Civil Engineering</mat-option>
+                              <mat-option value="chemical_engineering">Chemical Engineering</mat-option>
+                              <mat-option value="biomedical_engineering">Biomedical Engineering</mat-option>
+                              <mat-option value="aerospace_engineering">Aerospace Engineering</mat-option>
+                              <mat-option value="marine_biology">Marine Biology</mat-option>
+                              <mat-option value="genetics">Genetics</mat-option>
+                              <mat-option value="neuroscience">Neuroscience</mat-option>
+                              <mat-option value="astronomy">Astronomy</mat-option>
+                              <mat-option value="geology">Geology</mat-option>
+                              <mat-option value="meteorology">Meteorology</mat-option>
+                              <mat-option value="oceanography">Oceanography</mat-option>
+                              <mat-option value="anthropology">Anthropology</mat-option>
+                              <mat-option value="archaeology">Archaeology</mat-option>
+                              <mat-option value="linguistics">Linguistics</mat-option>
+                              <mat-option value="theology">Theology</mat-option>
+                              <mat-option value="music">Music</mat-option>
+                              <mat-option value="performing_arts">Performing Arts</mat-option>
+                              <mat-option value="film_studies">Film Studies</mat-option>
+                              <mat-option value="creative_writing">Creative Writing</mat-option>
+                              <mat-option value="journalism">Journalism</mat-option>
+                              <mat-option value="public_relations">Public Relations</mat-option>
+                              <mat-option value="advertising">Advertising</mat-option>
+                              <mat-option value="graphic_design">Graphic Design</mat-option>
+                              <mat-option value="industrial_design">Industrial Design</mat-option>
+                              <mat-option value="fashion_design">Fashion Design</mat-option>
+                              <mat-option value="urban_planning">Urban Planning</mat-option>
+                              <mat-option value="hospitality_management">Hospitality Management</mat-option>
+                              <mat-option value="tourism">Tourism</mat-option>
+                              <mat-option value="sports_management">Sports Management</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+                  
+                    <div class="col-12 col-md-12">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Question </mat-label>
+                        <input  [formControlName]="'question'" matInput >
+                      </mat-form-field>
+                    </div> 
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                      <div class="card">
+                        <div class="header">
+                          <h5 >Choose quiz photo </h5>
+                        </div>
+                        <div class="body">
+                          <div class="example-container">
+                            
+                              <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+                               
+                                  <input  style="padding: 12px !important;" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="multiple_files" (change)="uploadPhoto($event)" type="file">
+                                
+                                
+                                  <img [src]="PhotoFilePath" style="width: 250px; transform: translateX(22%);" >
+                                </div>
+                              </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+           </div>
+                    <div class="col-12 col-md-6">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Choose 1</mat-label>
+                        <input  [formControlName]="'choix1'" matInput >
+                      </mat-form-field>
+                    </div> 
+                    <div class="col-12 col-md-6">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Choose 2</mat-label>
+                        <input  [formControlName]="'choix2'" matInput >
+                      </mat-form-field>
+                    </div> 
+                    <div class="col-12 col-md-6">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Choose 3</mat-label>
+                        <input  [formControlName]="'choix3'" matInput >
+                      </mat-form-field>
+                    </div> 
+                  
+                   
+                 
+                    
+                    <div class="col-12 col-md-12">
+                        <div class="d-flex gap-3">
+         
+                          <button mat-flat-button color="primary" class="px-4" (click)="addquiz()" >Add Quiz</button>
+                        
+                        </div>
+                    </div>
+              
+                </div>
+              </form><!--end row-->
+            </mat-card-content>
+        </mat-card>
+
+   
